@@ -1,0 +1,5 @@
+default['riak']['config']['listener']['http']['internal']     = '0.0.0.0:8098'
+default['riak']['config']['listener']['protobuf']['internal'] = '0.0.0.0:8087'
+default['riak']['config']['storage_backend']                  = 'leveldb'
+default['riak']['config']['riak_control.top_level']           = 'on'
+default['riak']['config']['search.top_level']                 = 'on'
