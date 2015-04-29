@@ -16,11 +16,21 @@ Vagrant.configure(2) do |cluster|
         vb.memory = '1024'
       end
 
+      config.vm.provision 'shell', inline: 'nmcli connection reload;systemctl restart network.service'
+
       config.vm.provision :chef_solo do |chef|
         chef.cookbooks_path = %w(cookbooks site-cookbooks)
 
+        chef.add_recipe 'java'
         chef.add_recipe 'datastore::riak'
         chef.json = {
+          "java" => {
+            "install_flavor" => "oracle",
+            "jdk_version" => "7",
+            "oracle" => {
+              "accept_oracle_download_terms" => true
+            }
+          },
           "riak" => {
             "config" => {
               "nodename" => "riak@192.168.33.1#{i}"
