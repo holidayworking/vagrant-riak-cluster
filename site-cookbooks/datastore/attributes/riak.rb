@@ -1,6 +1,6 @@
 default['riak']['package']['version']['major'] = '2'
 default['riak']['package']['version']['minor'] = '1'
-default['riak']['package']['version']['incremental'] = '0'
+default['riak']['package']['version']['incremental'] = '1'
 default['riak']['package']['version']['build'] = '1'
 
 default['riak']['config']['listener']['http']['internal']     = '0.0.0.0:8098'
