@@ -14,6 +14,8 @@ Vagrant.configure(2) do |cluster|
 
       config.vm.provider :virtualbox do |vb|
         vb.memory = '1024'
+
+        vb.linked_clone = true
       end
 
       config.vm.provision 'shell', inline: 'nmcli connection reload;systemctl restart network.service'
